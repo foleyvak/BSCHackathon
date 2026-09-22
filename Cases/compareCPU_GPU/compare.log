@@ -1,0 +1,52 @@
+nohup: ignoring input
+
+--- Temperature ---
+  GPU  ->  min=5.5643  max=7.94832  mean=6.78228
+  CPU  ->  min=5.48018  max=7.96869  mean=6.78214
+  Mean absolute difference : 0.0163382
+  Max  absolute difference : 0.292465
+  RMSE                     : 0.0239085
+  Verdict: DIFFERENT -- 4360200 / 4360200 points (100%) exceed tolerance
+
+--- Density ---
+  GPU  ->  min=0.505285  max=2.06075  mean=1.00056
+  CPU  ->  min=0.513932  max=1.99603  mean=1.00056
+  Mean absolute difference : 0.00593305
+  Max  absolute difference : 0.210858
+  RMSE                     : 0.00940709
+  Verdict: DIFFERENT -- 4360200 / 4360200 points (100%) exceed tolerance
+
+--- Velocity u ---
+  GPU  ->  min=-15.8551  max=47.2153  mean=11.7617
+  CPU  ->  min=-15.9452  max=47.4021  mean=11.7661
+  Mean absolute difference : 0.0653763
+  Max  absolute difference : 1.38159
+  RMSE                     : 0.12275
+  Verdict: DIFFERENT -- 4360200 / 4360200 points (100%) exceed tolerance
+
+--- Velocity v ---
+  GPU  ->  min=-16.9138  max=17.0567  mean=-0.0118623
+  CPU  ->  min=-17.2632  max=17.2632  mean=-0.0154235
+  Mean absolute difference : 0.192138
+  Max  absolute difference : 4.94433
+  RMSE                     : 0.429743
+  Verdict: DIFFERENT -- 4360200 / 4360200 points (100%) exceed tolerance
+
+--- Velocity w ---
+  GPU  ->  min=-16.5435  max=16.5177  mean=0.0109274
+  CPU  ->  min=-16.7464  max=16.7558  mean=0.0148537
+  Mean absolute difference : 0.0669682
+  Max  absolute difference : 1.40733
+  RMSE                     : 0.124987
+  Verdict: DIFFERENT -- 4360200 / 4360200 points (100%) exceed tolerance
+
+==================================================
+OVERALL SUMMARY
+==================================================
+  Temperature    : DIFFERENT / MISSING
+  Density        : DIFFERENT / MISSING
+  Velocity u     : DIFFERENT / MISSING
+  Velocity v     : DIFFERENT / MISSING
+  Velocity w     : DIFFERENT / MISSING
+
+>>> RESULT: The GPU and CPU snapshots are DIFFERENT.
