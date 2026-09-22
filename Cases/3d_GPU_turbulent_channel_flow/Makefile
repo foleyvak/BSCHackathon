@@ -19,8 +19,8 @@ CXXFLAGS += -D_GPU_AWARE_MPI_DEACTIVATED_=0
 # UBUNTU - LINUX
 INC_LIB_YAML =
 INC_DIR_YAML =
-INC_LIB_HDF5 = -L/usr/lib/x86_64-linux-gnu/hdf5/openmpi 
-INC_DIR_HDF5 = -I/usr/include/hdf5/openmpi
+#INC_LIB_HDF5 = -L/usr/lib/x86_64-linux-gnu/hdf5/openmpi 
+#INC_DIR_HDF5 = -I/usr/include/hdf5/openmpi
 ## MAC - OS X
 #INC_LIB_YAML = -L/usr/local/lib
 #INC_DIR_YAML = -I/usr/local/include

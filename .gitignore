@@ -3,3 +3,6 @@ Cases/*/out
 Cases/*/nohup.out
 Cases/*/job.output.*
 Cases/*/*.exe
+Cases/*/*.h5
+Cases/*/*.xdmf
+Cases/*/results.*
