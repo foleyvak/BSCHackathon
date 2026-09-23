@@ -1,5 +1,14 @@
 #include "ParallelTopology.hpp"
 
+#ifdef USE_NVTX
+    #include <nvtx3/nvToolsExt.h>     /// header-only NVTX3 (use <nvToolsExt.h> and link -lnvToolsExt for NVTX v2)
+    #define NVTX_PUSH(name) nvtxRangePushA(name)
+    #define NVTX_POP()      nvtxRangePop()
+#else
+    #define NVTX_PUSH(name)
+    #define NVTX_POP()
+#endif
+
 using namespace std;
 
 ParallelTopology::ParallelTopology(ComputationalDomain* dom, int nprocsx, int nprocsy, int nprocsz)
@@ -4906,6 +4915,8 @@ void ParallelTopology :: halo_exchange()
 
 void ParallelTopology::update_gpu(double *vec)
 {
+    NVTX_PUSH("update_gpu");
+    
     #pragma acc data present(vec[0:_ls_]) 
     {
 	pack_gpu(vec);
@@ -4913,10 +4924,13 @@ void ParallelTopology::update_gpu(double *vec)
 	unpack_gpu(vec);
     }
     
+    NVTX_POP();
 }
 
 void ParallelTopology::pack_gpu(double *vec)
 {
+
+    NVTX_PUSH("pack_gpu");
 
     //WEST
 if (getNB(_WEST_) != _NO_NEIGHBOUR_) {
@@ -5211,10 +5225,13 @@ if (getNB(_EAST_N_F_) != _NO_NEIGHBOUR_) {
             }
 }
 //#pragma acc wait
+    NVTX_POP();
 };
 
 void ParallelTopology::unpack_gpu(double *vec)
 {
+
+    NVTX_PUSH("unpack_gpu");
 
      // WEST
     if (getNB(_WEST_) != _NO_NEIGHBOUR_) {
@@ -5532,6 +5549,8 @@ void ParallelTopology::unpack_gpu(double *vec)
     }
 
 #pragma acc wait
+
+    NVTX_POP();
 };
 
 void ParallelTopology::halo_exchange_gpu()
